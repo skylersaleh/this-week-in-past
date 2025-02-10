@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE_NAME: rouhim/this-week-in-past
+  IMAGE_NAME: skylersaleh/this-week-in-past-testing
 
 jobs:
   # Use latest for main and PR number for the "ticket" string as prefix for PRs
@@ -196,7 +196,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         shell: bash
         run: |
-          REPO="RouHim/this-week-in-past"
+          REPO="skylersaleh/this-week-in-past"
           LATEST_RELEASE_VERSION=$(curl --silent "https://api.github.com/repos/$REPO/releases/latest" | jq -r ".tag_name")
           echo "Latest release is $LATEST_RELEASE_VERSION"
           echo "VERSION=$LATEST_RELEASE_VERSION" >> $GITHUB_ENV
@@ -356,7 +356,7 @@ jobs:
         shell: bash
         if: github.ref == 'refs/heads/main'
         run: |
-          REPO="RouHim/this-week-in-past"
+          REPO="skylersaleh/this-week-in-past"
           VERSION=$(curl --silent "https://api.github.com/repos/$REPO/releases/latest" | jq -r ".tag_name")
           MINOR_PART=$(echo $VERSION | cut -d. -f2)
           MAJOR_PART=$(echo $VERSION | cut -d. -f1)
